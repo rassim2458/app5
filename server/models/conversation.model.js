@@ -8,7 +8,7 @@ const conversationSchema = new mongoose.Schema({
     // Unique Conversation Id
     chatId : {
         type: mongoose.Schema.Types.ObjectId,
-        unique: false,
+        unique: true,
     },
 
     // Array of user IDs who are members of the conversation
