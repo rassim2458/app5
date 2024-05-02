@@ -3,7 +3,7 @@ import { Stack } from "@mui/material";
 import { Navigate, Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import { useDispatch, useSelector } from "react-redux";
-import { selectConversation } from "../../redux/slices/app";
+import { SelectConversation } from "../../redux/slices/app";
 import { socket, connectSocket } from "../../socket";
 import {
   UpdateDirectConversation,
@@ -77,7 +77,7 @@ const DashboardLayout = () => {
           // add direct conversation
           dispatch(AddDirectConversation({ conversation: data }));
         }
-        dispatch(selectConversation({ room_id: data._id }));
+        dispatch(SelectConversation({ room_id: data._id }));
       });
 
     }
