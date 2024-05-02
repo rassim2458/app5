@@ -4,13 +4,13 @@ import SideBar from "./SideBar";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
-const isAuthenticated = true;
+const isLoggedIn = true;
 
 
 const DashboardLayout = () => {
 
 
-if(!isAuthenticated){
+if(!isLoggedIn){
   return <Navigate to='/auth/login'/>;
 }
 

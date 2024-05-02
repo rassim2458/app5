@@ -8,7 +8,10 @@ import Logo from "../../assets/Images/logo.ico";
 
 
 const AuthLayout = () => {
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  if (isLoggedIn) {
+    return <Navigate to={"/home"} />;
+  }
 
 
   return (
