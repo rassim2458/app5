@@ -2,13 +2,30 @@ import { Box, IconButton, Stack, Typography } from
   '@mui/material'
 import { CircleDashed, MagnifyingGlass } from 'phosphor-react';
 import { useTheme } from '@mui/material/styles';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ChatList } from '../../data';
 import { Search, SearchIconWrapper, StyledInputBase } from '../../components/Search';
 import ChatElement from '../../components/ChatElement';
+import { socket } from '../../socket';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchDirectConversations } from "../../redux/slices/conversation";
+
+
+const user_id = window.localStorage.getItem("user_id")
+
 
 const Chats = () => {
+  
   const theme = useTheme();
+
+  const dispatch = useDispatch();
+
+  const {conversations} = useSelector((state) => state.conversation.direct_chat);
+
+  
+
+ 
+
   return (
     <Box sx={{
       position: "relative", width: 320, height: "100%",
@@ -38,7 +55,7 @@ const Chats = () => {
 
           <Stack spacing={2.4}>
 
-            {ChatList.map((el) => {
+            {conversations.map((el) => {
               return <ChatElement {...el} />
             })}
 
