@@ -87,7 +87,11 @@ const slice = createSlice({
               unread: 0,
               pinned: false,
             });
-          },},
+          },
+          addDirectMessage(state, action) {
+            state.direct_chat.current_messages.push(action.payload.message);
+          }
+        },
 });
 export default slice.reducer;
 
@@ -97,3 +101,19 @@ export const fetchDirectConversations= ({conversations}) => {
         dispatch(slice.actions.fetchDirectConversations({conversations}))
     }
 }
+
+export const AddDirectConversation = ({ conversation }) => {
+    return async (dispatch, getState) => {
+      dispatch(slice.actions.addDirectConversation({ conversation }));
+    };
+  };
+  export const UpdateDirectConversation = ({ conversation }) => {
+    return async (dispatch, getState) => {
+      dispatch(slice.actions.updateDirectConversation({ conversation }));
+    };
+  };
+  export const AddDirectMessage = (message) => {
+    return async (dispatch, getState) => {
+      dispatch(slice.actions.addDirectMessage({message}));
+    }
+  }

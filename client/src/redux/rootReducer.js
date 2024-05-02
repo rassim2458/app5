@@ -2,7 +2,7 @@
 import { combineReducers } from "redux"; 
 import storage from "redux-persist/lib/storage";
 import appReducer from './slices/app'
-import conversation from "./slices/conversation";
+import conversationReducer from "./slices/conversation";
 
 
 //slices
@@ -19,7 +19,7 @@ const rootPersistConfig = {
 //create combine reducer
 const rootReducer = combineReducers({
     app: appReducer,
-    conversation: conversation,
+    conversation: conversationReducer,
     
 });
 
